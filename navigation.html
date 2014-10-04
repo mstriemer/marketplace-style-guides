@@ -3,49 +3,164 @@ layout: MarketplaceUXSpec
 multipage: false
 ---
 
+<script>
+function define(name, deps, module) {
+  // Nothing has any dependencies.
+  module();
+}
+function gettext(text) {
+  // No translations.
+  return text;
+}
+</script>
+<script src="//marketplace.cdn.mozilla.net/media/fireplace/js/lib/document-register-element.js"></script>
+<script src="//marketplace.cdn.mozilla.net/media/fireplace/js/components.js"></script>
+<style>
+.mkt-banner {
+    background: #797979;
+      color: #fff;
+        display: block;
+          overflow: hidden;
+            position: relative;
+              line-height: 1.3;
+}
+.mkt-banner-content {
+    margin: 2px auto;
+      max-width: 1024px;
+        position: relative;
+          text-align: center;
+}
+.mkt-banner-content .close {
+    margin-top: -17px;
+      top: 50%;
+}
+.mkt-banner-content span {
+    display: inline-block;
+      margin-top: 10px;
+        padding: 0;
+}
+.mkt-banner-content a {
+    border-radius: 5px;
+      color: #fff;
+        display: inline-block;
+          margin: 10px;
+            padding: 10px;
+              text-decoration: none;
+}
+.mkt-banner-firefox .mkt-banner-content {
+    background: url("../img/logos/firefox-64.png") no-repeat;
+      background-position: 0 50%;
+        background-size: 64px 60px;
+          min-height: 60px;
+            padding: 0 40px 0 70px;
+}
+.mkt-banner-firefox a {
+    background-color: #535353;
+}
+.mkt-banner-firefox a:hover {
+    background-color: #4b4b4b;
+}
+.mkt-banner-firefox .close,
+.mkt-banner-firefox .close:hover {
+    background-color: transparent;
+}
+.mkt-banner-success {
+    background: #64be3c;
+}
+.mkt-banner-success .mkt-banner-content {
+    font-size: 15px;
+      font-weight: 500;
+        padding: 0 10px;
+}
+.mkt-banner-success small {
+    font-size: 15px;
+      font-weight: 400;
+}
+.mkt-banner-success a {
+    background-color: #118e36;
+}
+.mkt-banner-success a:hover {
+    background-color: #0f8031;
+}
+@media (min-width: 1025px) {
+    .mkt-banner-content {
+          padding: 0;
+            }
+}
+@media (max-width: 709px) {
+    .mkt-banner small {
+          display: none;
+            }
+}
+</style>
 <div class="container">
-	<div class="row">
-		<div class="col-sm-12 col-md-12 col-lg-12">
-			<h1>Navigation</h1>
-				<h2>Desktop navigation</h2>
-				<img src="img/navBarDesktop.png"/><br/>
-				<br>
-				<p class="longText">This is the logged-in state of the navigation bar. If no one is logged in, the "My Account" dropdown does not appear.
-				</p>
-				<br>
-				<img src="img/navBarDesktopDropDown.png"/><br/>
-				<br>
-				<p class="longText">This is the category dropdown menu. The blue squares are category icons. Note, this is the logged-out state.
-				</p>
-				<br>
-				<img src="img/breadcrumbs.png"/><br/>
-				<br>
-				<p class="longText">Breadcrumbs appear on desktop and tablet.
-				</p>
-				<br>
-				<img src="img/sideBarNav.png"/><br/>
-				<br>
-				<p class="longText">This new sidebar navigation style is for the devHub only.
-				</p>
-				<br>
-				<h2>Mobile Navigation</h2>
-				<br>
-				<img src="img/mobileNav.png"/><br/>
-				<br>
-				<p class="longText">Here we have two versions of the mobile navigation bar. The top two are the two different states of the standard mobile Marketplace app: browse and settings. The third navigation bar is specific to Tarako devices. There is no logged in state for this fork of the Marketplace.
-				</p>
-				<br>
-				<h2>Events</h2>
-				<br>
-				<img src="img/events.png"/><br/>
-				<br>
-				<p class="longText">Events appear at the top of the screen, pushing the page below down. When dismissed by tapping 'x', the event block slides up off the page.
-				</p>
-		</div>
-	</div>
-	<!-- Pagination. If you have more than one page, set the multipage variable in the Frontmatter to true. Editing the pagination code happens in /_includes/homePagination.html.
-		NOTE: This is currently broken in the Jekyll ver of this template.
-		-->
-		{% if page.multipage %}
-			{% include homePagination.html %}
-		{% endif %}
+  <div class="row">
+    <div class="col-sm-12 col-md-12 col-lg-12">
+      <h1>Navigation</h1>
+      <section>
+        <h2>Desktop navigation</h2>
+        <img src="img/navBarDesktop.png"/><br/>
+        <br>
+        <p class="longText">This is the logged-in state of the navigation bar. If no one is logged in, the "My Account" dropdown does not appear.
+        </p>
+        <br>
+        <img src="img/navBarDesktopDropDown.png"/><br/>
+        <br>
+        <p class="longText">This is the category dropdown menu. The blue squares are category icons. Note, this is the logged-out state.
+        </p>
+        <br>
+        <img src="img/breadcrumbs.png"/><br/>
+        <br>
+        <p class="longText">Breadcrumbs appear on desktop and tablet.
+        </p>
+        <br>
+        <img src="img/sideBarNav.png"/><br/>
+        <br>
+        <p class="longText">This new sidebar navigation style is for the devHub only.
+        </p>
+        <br>
+      </section>
+      <section>
+        <h2>Mobile Navigation</h2>
+        <br>
+        <img src="img/mobileNav.png"/><br/>
+        <br>
+        <p class="longText">Here we have two versions of the mobile navigation bar. The top two are the two different states of the standard mobile Marketplace app: browse and settings. The third navigation bar is specific to Tarako devices. There is no logged in state for this fork of the Marketplace.
+        </p>
+        <br>
+      </section>
+      <section>
+        <h2>Events</h2>
+        <p class="longText">Events appear at the top of the screen, pushing the page below down. When dismissed by tapping 'x', the event block slides up off the page.
+        </p>
+        <mkt-banner success>
+          Awesome!
+          <small>Changes saved.</small>
+        </mkt-banner>
+        <pre>
+          &lt;mkt-banner success&gt;
+            Awesome!
+            &lt;small&gt;Changes saved.&lt;/small&gt;
+          &lt;/mkt-banner&gt;
+        </pre>
+        <mkt-banner success>
+          Success!
+          <small>Your new manifest has been activated.</small>
+          <a href="#">Revert to previous manifest</a>
+        </mkt-banner>
+        <pre>
+            &lt;mkt-banner success&gt;
+              Success!
+              &lt;small&gt;Your new manifest has been activated.&lt;/small&gt;
+              &lt;a href="#"&gt;Revert to previous manifest&lt;/a&gt;
+            &lt;/mkt-banner&gt;
+        </pre>
+      </section>
+    </div>
+  </div>
+  <!-- Pagination. If you have more than one page, set the multipage variable in the Frontmatter to true. Editing the pagination code happens in /_includes/homePagination.html.
+        NOTE: This is currently broken in the Jekyll ver of this template.
+        -->
+  {% if page.multipage %}
+  {% include homePagination.html %}
+  {% endif %}
